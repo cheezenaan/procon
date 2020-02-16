@@ -3,5 +3,9 @@
 N = gets.to_i
 S = N.times.map { gets.chomp }
 
-# めちゃくちゃ TLE した
-puts S.group_by { |s| S.count(s) }.values.last.reverse.uniq
+# 要素の個数を集計する Hash を別に用意
+h = Hash.new(0)
+S.each { |s| h[s] += 1 }
+max = h.values.max
+
+puts h.select { |_k, v| v == max }.keys.sort
