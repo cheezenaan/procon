@@ -1,11 +1,16 @@
 # frozen_string_literal: true
 
 N = gets.chomp
-Ps = gets.split.map(&:to_i)
+P = gets.split.map(&:to_i)
 
 count = 0
-Ps.each.with_index(1) do |n, i|
-  count += 1 if 1.upto(i).all? { |j| n <= Ps[j - 1] }
+min = P[0]
+
+0.upto(P.size - 1) do |i|
+  if P[i] <= min
+    min = P[i]
+    count += 1
+  end
 end
 
 puts count
