@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 N, M = gets.split.map(&:to_i)
-LR = M.times.map { gets.split.map(&:to_i) }.map { |a, b| (a..b).to_a }
+min, max = gets.split.map(&:to_i)
 
-cards = LR[0]
-1.upto(M - 1) do |i|
-  cards &= LR[i]
+1.upto(M - 1) do
+  l, r = gets.split.map(&:to_i)
+
+  min = l if min <= l
+  max = r if max >= r
 end
 
-puts cards.count
+ans = max - min + 1
+puts  ans.negative? ? 0 : ans
