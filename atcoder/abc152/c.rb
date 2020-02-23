@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 N = gets.chomp
-P = gets.split.map(&:to_i)
+p = gets.split.map(&:to_i)
 
 count = 0
-min = P[0]
+min = p[0]
 
-0.upto(P.size - 1) do |i|
-  if P[i] <= min
-    min = P[i]
+0.upto(p.size - 1) do |i|
+  if p[i] <= min
+    min = p[i]
     count += 1
   end
 end
