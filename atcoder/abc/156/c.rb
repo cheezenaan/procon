@@ -6,10 +6,9 @@ pmin, pmax = x.minmax
 
 dist = Hash.new(0)
 pmin.upto(pmax) do |p|
-  sum = x.inject(0) do |r, a|
-    r + ((a - p)**2)
+  dist[p] = x.inject(0) do |sum, xi|
+    sum + ((xi - p)**2)
   end
-  dist[p] = sum
 end
 
 puts dist.values.min
