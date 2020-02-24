@@ -2,9 +2,8 @@
 
 s = gets.chomp
 
-count = 0
-(s.length / 2).times do |i|
-  count += 1 if s[i] != s[-1 - i]
+ans = (s.length / 2).times.count do |i|
+  s[i] != s[-1 - i]
 end
 
-puts count
+puts ans
