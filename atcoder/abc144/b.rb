@@ -3,11 +3,11 @@
 n = gets.to_i
 
 ans = 'No'
+range = (1..9)
 
-1.upto(9) do |i|
-  1.upto(9) do |j|
-    ans = 'Yes' if i * j == n
-  end
+range.each do |i|
+  div, mod = n.divmod(i)
+  ans = 'Yes' if range.include?(div) && mod.zero?
 end
 
 puts ans
