@@ -1,0 +1,82 @@
+#!/bin/sh
+
+ATCODER_DIR=$(
+  cd $(dirname $0)/../atcoder
+  pwd
+)
+IS_ATCODER="a(b|g|r)c[0-9]{3}"
+
+function init() {
+  if [ $# -eq 0 ]; then
+    echo "Error: No arguments given"
+    exit 1
+  fi
+
+  CONTEST=$1
+  PROBLEM=$2
+
+  if [[ ! $CONTEST =~ $IS_ATCODER ]]; then
+    echo "Error: Invalid Format"
+    exit 1
+  fi
+
+  if [ ! -d $ATCODER_DIR/$CONTEST ]; then
+    mkdir -p $ATCODER_DIR/$CONTEST
+
+    echo "Info: Directory $ATCODER_DIR/$CONTEST created"
+  fi
+
+  PROBLEMS=()
+
+  if [ ! -f $ATCODER_DIR/$CONTEST/$PROBLEM ]; then
+    if [ "$PROBLEM" != "" ]; then
+      PROBLEMS+=("$PROBLEM")
+    else
+      PROBLEMS+=("a" "b" "c" "d" "e" "f")
+    fi
+
+    for P in ${PROBLEMS[@]}; do
+      FILE=$CONTEST/$P.rb
+      TARGET=$ATCODER_DIR/$FILE
+      if [ -e $TARGET ]; then
+        echo "Warn: File $FILE already exists"
+        continue
+      fi
+
+      cp $ATCODER_DIR/template.rb $TARGET
+      echo "Info: File $FILE created"
+    done
+  fi
+}
+
+function test() {
+  if [ $# -eq 0 ]; then
+    echo "Error: No arguments given"
+    exit 1
+  fi
+
+  CONTEST=$1
+  PROBLEM=$2
+  IS_ATCODER="a(b|g|r)c[0-9]{3}"
+
+  echo "Testing $CONTEST-$PROBLEM ..."
+  ruby $ATCODER_DIR/$CONTEST/$PROBLEM.rb
+}
+
+function usage() {
+  cat <<EOF
+Usage:
+  $(basename ${0}) [command]
+
+Commands:
+  init abc156 [a or b or c or ... or f]
+  init agc001
+  test abc156 c
+EOF
+}
+
+case "${1}" in
+"init") init ${@:2} ;;
+"test") test ${@:2} ;;
+*) usage ;;
+esac
