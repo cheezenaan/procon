@@ -3,5 +3,6 @@
 require 'prime'
 
 x = gets.to_i
+x += 1 until x.prime?
 
-puts Prime.find { |n| n >= x }
+puts x
