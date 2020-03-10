@@ -3,9 +3,9 @@
 n = gets.to_i
 a = gets.split.map(&:to_i)
 
-h = Hash.new(0)
-n.times.map do |i|
-  h[i + 1] = a[i]
+ans = Array.new(n)
+a.each.with_index(1) do |ai, i|
+  ans[ai - 1] = i
 end
 
-puts h.sort_by(&:last).to_h.keys.join(' ')
+puts ans.join(' ')
