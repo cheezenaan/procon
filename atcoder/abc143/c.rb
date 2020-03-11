@@ -3,11 +3,9 @@
 n = gets.to_i
 s = gets.chomp.chars
 
+ans = 1
 (n - 1).times do |i|
-  l = s[i]
-  r = s[i + 1]
-
-  s[i] = nil if l == r
+  ans += 1 if s[i] != s[i + 1]
 end
 
-puts s.compact.count
+puts ans
