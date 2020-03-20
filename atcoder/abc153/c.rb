@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-N, K = gets.split(' ').map(&:to_i)
-hs = gets.split(' ').map(&:to_i)
+n, k = gets.split.map(&:to_i)
+hs = gets.split.map(&:to_i).sort!
 
-puts K >= N ? 0 : hs.sort!.reverse![K..-1].inject(&:+)
+puts hs[0..-1 - k].inject(:+) || 0
