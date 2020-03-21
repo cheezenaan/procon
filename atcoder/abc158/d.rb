@@ -2,13 +2,14 @@
 
 s = gets.chomp
 q = gets.to_i
-queries = q.times.map { gets.split }
 
 s1 = ''
 s2 = s
 reversed = false
 
-queries.each do |t, f, c|
+q.times do
+  t, f, c = gets.split
+
   if t.to_i == 1
     reversed = !reversed
     next
