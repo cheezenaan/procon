@@ -2,12 +2,14 @@
 
 n = gets.to_i
 as = gets.split.map(&:to_i)
+MAX = 2 * 10**5
 
-cs = as.each_with_object(Hash.new(0)) do |a, h|
-  h[a] += 1
+cs = Array.new(MAX + 1, 0)
+as.each do |a|
+  cs[a] += 1
 end
 
-sum = cs.values.inject(0) do |r, v|
+sum = cs.inject(0) do |r, v|
   r + v * (v - 1) / 2
 end
 
