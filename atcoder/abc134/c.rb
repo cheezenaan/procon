@@ -3,17 +3,8 @@
 n = gets.to_i
 as = n.times.map { gets.to_i }
 
-counts = Hash.new(0)
-as.each do |a|
-  counts[a] += 1
-end
-keys = counts.keys.sort
-max = keys.last
+largest, second_largest = as.max(2)
 
 as.each do |a|
-  if a == max && counts[max] < 2
-    puts keys[-2]
-  else
-    puts max
-  end
+  puts a < largest ? largest : second_largest
 end
