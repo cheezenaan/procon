@@ -2,19 +2,7 @@
 
 n, k = gets.split.map(&:to_i)
 
-ans = n
+a = n % k
+b = (k - n) % k # = (k - (n % k)) % k, (n % k) % k = n
 
-while ans >= 1
-  if ans <= k
-    if (ans - k).abs <= ans
-      ans = (ans - k).abs
-      break
-    else
-      break
-    end
-  end
-
-  ans %= k
-end
-
-puts ans
+puts a <= b ? a : b
