@@ -4,7 +4,4 @@ n, m = gets.split.map(&:to_i)
 as = gets.split.map(&:to_i)
 
 sum = as.inject(:+)
-
-items = as.select { |a| a >= sum.to_f / (4.0 * m) }
-
-puts items.count >= m ? 'Yes' : 'No'
+puts as.max(m).all? { |a| a * (4 * m) >= sum } ? 'Yes' : 'No'
