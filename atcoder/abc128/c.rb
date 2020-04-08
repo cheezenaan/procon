@@ -11,11 +11,10 @@ ans = 0
 
   m.times do |i|
     count = ss[i].count { |s| bit[s - 1] == 1 }
+    next if count % 2 == ps[i]
 
-    if count % 2 != ps[i]
-      valid = false
-      break
-    end
+    valid = false
+    break
   end
 
   ans += 1 if valid
