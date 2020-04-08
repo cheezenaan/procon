@@ -1,12 +1,7 @@
 # frozen_string_literal: true
 
 n, m = gets.split.map(&:to_i)
-
-ss = Array.new(m) { [] }
-m.times do |i|
-  _, *s = gets.split.map(&:to_i)
-  ss[i] = s
-end
+ss = m.times.map { gets.split.map(&:to_i)[1..-1] }
 ps = gets.split.map(&:to_i)
 
 ans = 0
