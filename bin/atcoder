@@ -1,5 +1,7 @@
 #!/bin/sh
 
+PROGNAME=$(basename $0)
+
 ATCODER_DIR=$(
   cd $(dirname $0)/../atcoder
   pwd
@@ -55,12 +57,67 @@ function test() {
     exit 1
   fi
 
-  CONTEST=$1
-  PROBLEM=$2
-  IS_ATCODER="a(b|g|r)c[0-9]{3}"
+  declare -a argv=()
 
-  echo "Testing $CONTEST-$PROBLEM ..."
-  ruby $ATCODER_DIR/$CONTEST/$PROBLEM.rb
+  while (($# > 0)); do
+    case $1 in
+    -h | --help)
+      cat <<-EOS
+Usage:
+  $PROGNAME test CONTEST TASK
+
+Options:
+  -h, --help
+  -v, --version
+EOS
+      exit 1
+      ;;
+
+    -v | --version)
+      if [[ -z "$2" ]] || [[ "$2" =~ ^-+ ]]; then
+        echo "$PROGNAME: option requires an argument -- $1" 1>&2
+        exit 1
+      fi
+      RUBY_VERSION=$2
+      shift 2
+      ;;
+    -- | -)
+      shift 1
+      argv=("${argv[@]}" "$1")
+      ;;
+    -*)
+      echo "$PROGNAME: illegal option -- '$(echo $1 | sed 's/^-*//')'" 1>&2
+      exit 1
+      ;;
+    *)
+      ((++argc))
+      argv=("${argv[@]}" "$1")
+      shift
+      ;;
+    esac
+  done
+
+  CONTEST=${argv[0]}
+  TASK=${argv[1]}
+
+  if [[ -z $CONTEST ]] || [[ -z $TASK ]]; then
+    echo "$PROGNAME: too few arguments" 1>&2
+    echo "Try '$PROGNAME --help' for more infomation." 1>&2
+    exit 1
+  fi
+
+  echo "Testing $CONTEST-$TASK ..."
+
+  RBENV_VERSION=${RUBY_VERSION:-"2.7.1"} ruby -v
+  case $? in
+  0)
+    RBENV_VERSION=${RUBY_VERSION:-"2.7.1"} ruby $ATCODER_DIR/$CONTEST/$TASK.rb
+    ;;
+  1)
+    echo "$PROGNAME: invalid version passed -- $RUBY_VERSION" 1>&2
+    exit 1
+    ;;
+  esac
 }
 
 function usage() {
@@ -71,7 +128,7 @@ Usage:
 Commands:
   init abc156 [a or b or c or ... or f]
   init agc001
-  test abc156 c
+  test abc156 c [-v, --version version_of_ruby]
 EOF
 }
 
