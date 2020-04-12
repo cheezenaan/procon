@@ -9,7 +9,7 @@ ATCODER_DIR=$(
 
 function init() {
   if [ $# -eq 0 ]; then
-    echo "Error: No arguments given"
+    echo "$PROGNAME: No arguments given"
     exit 1
   fi
 
@@ -56,9 +56,9 @@ function test() {
   while (($# > 0)); do
     case $1 in
     -h | --help)
-      cat <<-EOS
+      cat <<EOS
 Usage:
-  $PROGNAME test CONTEST TASK
+  bin/$PROGNAME test CONTEST TASK
 
 Options:
   -h, --help
@@ -117,7 +117,7 @@ EOS
 function usage() {
   cat <<EOF
 Usage:
-  $(basename ${0}) [command]
+  bin/$PROGNAME [COMMANDS]
 
 Commands:
   init abc156 [a or b or c or ... or f]
