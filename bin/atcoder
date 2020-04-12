@@ -6,7 +6,6 @@ ATCODER_DIR=$(
   cd $(dirname $0)/../atcoder
   pwd
 )
-# IS_ATCODER="a(b|g|r)c[0-9]{3}"
 
 function init() {
   if [ $# -eq 0 ]; then
@@ -16,11 +15,6 @@ function init() {
 
   CONTEST=$1
   PROBLEM=$2
-
-  # if [[ ! $CONTEST =~ $IS_ATCODER ]]; then
-  #   echo "Error: Invalid Format"
-  #   exit 1
-  # fi
 
   if [ ! -d $ATCODER_DIR/$CONTEST ]; then
     mkdir -p $ATCODER_DIR/$CONTEST
