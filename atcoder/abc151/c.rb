@@ -15,9 +15,9 @@ M.times do
 
   next if misses[p] == -1
 
-  if s == 'WA'
+  if s == "WA"
     misses[p] += 1
-  elsif s == 'AC'
+  elsif s == "AC"
     ac += 1
     pena += misses[p]
     misses[p] = -1

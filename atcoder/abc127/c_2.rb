@@ -11,4 +11,4 @@ min, max = gets.split.map(&:to_i)
 end
 
 ans = max - min + 1
-puts  ans.negative? ? 0 : ans
+puts ans.negative? ? 0 : ans

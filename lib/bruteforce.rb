@@ -6,7 +6,7 @@ def bit_bruteforce(n)
       (bit & (1 << i)) == 0
     end
 
-    puts "#{bit}: {#{s.join(' ')}}"
+    puts "#{bit}: {#{s.join(" ")}}"
   end
 end
 

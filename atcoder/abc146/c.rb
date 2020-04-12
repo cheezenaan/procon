@@ -5,7 +5,7 @@ def buyable?(n, a, b, x)
 end
 
 a, b, x = gets.split.map(&:to_i)
-n_max = 10**9
+n_max = 10 ** 9
 
 if buyable?(n_max, a, b, x)
   puts n_max

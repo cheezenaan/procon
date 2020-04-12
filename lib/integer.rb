@@ -22,6 +22,7 @@ def digit_sum_of(num)
 
   sum
 end
+
 # cf. also find the sum to cast from Integer to String and then inject
 # ex. num = 334; num.to_s.chars.map(&:to_i).inject(:+) => 10
 

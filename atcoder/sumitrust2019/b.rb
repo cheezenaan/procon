@@ -3,7 +3,7 @@
 n = gets.to_i
 
 MAX = 50_000
-ans = ':('
+ans = ":("
 
 1.upto(MAX) do |x|
   if n == (x * 1.08).floor

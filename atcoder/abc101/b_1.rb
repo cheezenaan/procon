@@ -13,4 +13,4 @@ end
 n = gets.to_i
 sn = digit_sum_of(n)
 
-puts n % sn == 0 ? 'Yes' : 'No'
+puts n % sn == 0 ? "Yes" : "No"

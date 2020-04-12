@@ -7,7 +7,7 @@ pmin, pmax = x.minmax
 dist = Hash.new(0)
 pmin.upto(pmax) do |p|
   dist[p] = x.inject(0) do |sum, xi|
-    sum + ((xi - p)**2)
+    sum + ((xi - p) ** 2)
   end
 end
 

@@ -5,11 +5,11 @@ t = gets.chomp
 
 c = s.length
 
-ans = 'No'
+ans = "No"
 
 c.times do
   if s == t
-    ans = 'Yes'
+    ans = "Yes"
     break
   end
 

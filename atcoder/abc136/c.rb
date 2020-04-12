@@ -3,7 +3,7 @@
 n = gets.to_i
 hs = gets.split.map(&:to_i)
 
-ans = 'Yes'
+ans = "Yes"
 last = hs[0]
 
 hs.each do |h|
@@ -18,7 +18,7 @@ hs.each do |h|
     next
   end
 
-  ans = 'No'
+  ans = "No"
   break
 end
 

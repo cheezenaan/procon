@@ -3,7 +3,7 @@
 s = gets.chomp
 q = gets.to_i
 
-s1 = ''
+s1 = ""
 s2 = s
 reversed = false
 

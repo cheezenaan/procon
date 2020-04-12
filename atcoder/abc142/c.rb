@@ -8,4 +8,4 @@ a.each.with_index(1) do |ai, i|
   ans[ai - 1] = i
 end
 
-puts ans.join(' ')
+puts ans.join(" ")

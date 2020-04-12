@@ -2,4 +2,4 @@
 
 l = gets.to_f
 
-puts (l / 3)**3
+puts (l / 3) ** 3

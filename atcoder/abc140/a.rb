@@ -2,4 +2,4 @@
 
 n = gets.to_i
 
-puts n**3
+puts n ** 3

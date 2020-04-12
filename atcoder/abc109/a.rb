@@ -2,4 +2,4 @@
 
 a, b = gets.split.map(&:to_i)
 
-puts (a * b).even? ? 'No' : 'Yes'
+puts (a * b).even? ? "No" : "Yes"

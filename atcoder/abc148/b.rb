@@ -3,7 +3,7 @@
 N = gets.to_i
 s, t = gets.split
 
-ans = ''
+ans = ""
 N.times do |i|
   ans += s[i] + t[i]
 end

@@ -9,7 +9,7 @@ n.times do |i|
 end
 
 if count == 0 || count == 2
-  puts 'YES'
+  puts "YES"
 else
-  puts 'NO'
+  puts "NO"
 end

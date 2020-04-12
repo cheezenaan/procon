@@ -12,14 +12,14 @@ hitted = Array.new(3) { Array.new(3, false) }
 end
 
 transposed = hitted.transpose
-ans = 'No'
+ans = "No"
 
 3.times do |i|
-  ans = 'Yes' if hitted[i].all? || transposed[i].all?
+  ans = "Yes" if hitted[i].all? || transposed[i].all?
 end
 
 if [hitted[0][0], hitted[1][1], hitted[2][2]].all? || [hitted[0][2], hitted[1][1], hitted[2][0]].all?
-  ans = 'Yes'
+  ans = "Yes"
 end
 
 puts ans

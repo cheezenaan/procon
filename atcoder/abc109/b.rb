@@ -7,4 +7,4 @@ satisfied = (n - 1).times.all? do |i|
   ws[i][-1] == ws[i + 1][0]
 end
 
-puts ws.uniq.length == n && satisfied ? 'Yes' : 'No'
+puts ws.uniq.length == n && satisfied ? "Yes" : "No"

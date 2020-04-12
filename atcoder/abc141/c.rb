@@ -8,4 +8,4 @@ q.times do |i|
   points[a[i] - 1] += 1
 end
 
-points.each { |p| puts p > 0 ? 'Yes' : 'No' }
+points.each { |p| puts p > 0 ? "Yes" : "No" }

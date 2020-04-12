@@ -9,9 +9,9 @@ head = x - (k - 1)
 tail = x + (k - 1)
 
 if head <= MIN
-  puts (MIN..tail).to_a.join(' ')
+  puts (MIN..tail).to_a.join(" ")
 elsif tail >= MAX
-  puts (head..MAX).to_a.join(' ')
+  puts (head..MAX).to_a.join(" ")
 else
-  puts (head..tail).to_a.join(' ')
+  puts (head..tail).to_a.join(" ")
 end

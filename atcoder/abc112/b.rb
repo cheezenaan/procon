@@ -11,4 +11,4 @@ n.times do
   ans = ci if ans.nil? || ci <= ans
 end
 
-puts ans || 'TLE'
+puts ans || "TLE"

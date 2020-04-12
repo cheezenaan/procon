@@ -6,4 +6,4 @@ l = gets.split.map(&:to_i)
 sum = l.inject(:+)
 lmax = l.max
 
-puts lmax < (sum - lmax) ? 'Yes' : 'No'
+puts lmax < (sum - lmax) ? "Yes" : "No"

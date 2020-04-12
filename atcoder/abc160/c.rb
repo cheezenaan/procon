@@ -5,7 +5,7 @@ as = gets.split.map(&:to_i)
 
 a1 = as.first
 an = as.last
-ans = 10**6 - 1
+ans = 10 ** 6 - 1
 
 dd = Array.new(n, 0)
 

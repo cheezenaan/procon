@@ -5,7 +5,7 @@ t, a = gets.split.map(&:to_i)
 hs = gets.split.map(&:to_f)
 
 ans = 1
-diff = (-60 - 10**5 * 0.006).abs
+diff = (-60 - 10 ** 5 * 0.006).abs
 
 hs.each.with_index(1) do |h, i|
   ai = t - h * 0.006

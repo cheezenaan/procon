@@ -4,9 +4,9 @@ a = gets.to_i
 b = gets.to_i
 
 if a > b
-  puts 'GREATER'
+  puts "GREATER"
 elsif a < b
-  puts 'LESS'
+  puts "LESS"
 else
-  puts 'EQUAL'
+  puts "EQUAL"
 end

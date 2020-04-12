@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'prime'
+require "prime"
 
 def divisors(num)
   num.prime_division.inject([1]) do |arr, (p, e)|
-    (0..e).map { |e1| p**e1 }.product(arr).map { |a, b| a * b }
+    (0..e).map { |e1| p ** e1 }.product(arr).map { |a, b| a * b }
   end.sort
 end
 

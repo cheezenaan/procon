@@ -2,7 +2,7 @@
 
 n = gets.to_i
 as = gets.split.map(&:to_i)
-MAX = 2 * 10**5
+MAX = 2 * 10 ** 5
 
 cs = Array.new(MAX + 1, 0)
 as.each do |a|

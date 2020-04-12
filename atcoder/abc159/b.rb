@@ -3,7 +3,7 @@
 def is_paindrome?(arr, len)
   len.times do |i|
     if arr[i] != arr[-(i + 1)]
-      puts 'No'
+      puts "No"
       exit 0
     end
   end
@@ -21,4 +21,4 @@ is_paindrome?(s, len)
 is_paindrome?(s1, s1.length)
 is_paindrome?(s2, s2.length)
 
-puts 'Yes'
+puts "Yes"
