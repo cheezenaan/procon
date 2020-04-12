@@ -19,3 +19,21 @@ def partial_sum_of(n, nums)
     end
   end
 end
+
+# ref. https://atcoder.jp/contests/abc146/submissions/11756004
+def bsearch(arr_or_range, &block)
+  ng = 0
+  ok = arr_or_range.size
+
+  while (ok - ng).abs > 1
+    mid = (ng + ok) / 2
+
+    if block.call(mid)
+      ok = mid
+    else
+      ng = mid
+    end
+  end
+
+  ok
+end
