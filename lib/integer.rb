@@ -1,5 +1,16 @@
 # frozen_string_literal: true
 
+def prime_factorize(num)
+  res = 2.upto(Math.sqrt(num)).with_object([]) do |div, arr|
+    while num % div == 0
+      arr << div
+      num /= div
+    end
+  end
+
+  res << num if num != 1
+end
+
 def divisors_of(num)
   sqrt_of_num = Math.sqrt(num)
 
