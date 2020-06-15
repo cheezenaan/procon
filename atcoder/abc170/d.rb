@@ -1,17 +1,21 @@
 n = gets.to_i
 as = gets.split.map(&:to_i).sort!
 
-nums = as.each_with_object(Hash.new(0)) { |a, h| h[a] += 1 }
-divisible = Array.new(as.last + 1, 1)
-res = 0
+counts = Hash.new(0)
+ans = Array.new(as.last + 1, 0)
 
 as.each do |a|
-  next if divisible[a] == 0
-  res += 1 if nums[a] == 1
+  counts[a] += 1
+  ans[a] = 1
+end
 
-  a.step(as.last, a) do |i|
-    divisible[i] = 0
+as.each do |a|
+  next if ans[a] == 0
+  ans[a] = 0 if counts[a] > 1
+
+  (a * 2).step(as.last, a) do |i|
+    ans[i] = 0
   end
 end
 
-puts res
+puts ans.count(1)
