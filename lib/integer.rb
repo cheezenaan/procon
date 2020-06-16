@@ -44,7 +44,8 @@ def divisors_of(num)
   end
 end
 
-# ref. ABC101-B
+# @note also find the sum to cast from Integer to String and then inject.
+#   ref. https://atcoder.jp/contests/abc086/submissions/11768628
 def digit_sum_of(num)
   sum = 0
 
@@ -56,10 +57,6 @@ def digit_sum_of(num)
   sum
 end
 
-# cf. also find the sum to cast from Integer to String and then inject
-# ex. num = 334; num.to_s.chars.map(&:to_i).inject(:+) => 10
-
-# ref. https://atcoder.jp/contests/abc086/submissions/11768628
 def sqrt_number?(num)
   Math.sqrt(num).floor == Math.sqrt(num)
 end
