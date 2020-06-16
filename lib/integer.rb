@@ -1,5 +1,27 @@
 # frozen_string_literal: true
 
+# Enumerate the primes less than or equal to the given integer,
+# using the sieve of Eratosthenes.
+#
+# @example Enumerate the primes less than or equal to 34
+#   puts(primes: eratos(34)) #=> { primes: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31] }
+#
+# @param [Integer] num the number
+# @return [Array] the array including the primes
+def eratos(num)
+  arr = Array.new(num + 1, 1)
+  arr[0] = arr[1] = 0
+
+  2.upto(Math.sqrt(num)) do |i|
+    next if arr[i] == 0
+    (i * 2).step(num, i) { |n| arr[n] = 0 }
+  end
+
+  arr.each_with_index.with_object([]) do |(a, i), res|
+    res << i if a == 1
+  end
+end
+
 def prime_factorize(num)
   res = 2.upto(Math.sqrt(num)).with_object([]) do |div, arr|
     while num % div == 0
